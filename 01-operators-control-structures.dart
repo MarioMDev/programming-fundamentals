@@ -59,6 +59,86 @@ void main() {
   bool y = false;
 
   print("!x = ${!x}");
-  print("!x = ${!x}");
-  print("!x = ${!x}");
+  print("x && y = ${x && y}");
+  print("x || y = ${x || y}");
+
+  // OPERADOR TERNARIO
+  print('c > 0 ? "positive" : "negative" = ${c > 0 ? "positive" : "negative"}');
+
+  // CONTROL STRUCTURES
+  // if - else
+  print(ifElse(5));
+  print(ifElse(14));
+  print(ifElse(32));
+
+  // switch - case
+  print(switchCase("Lunes"));
+  print(switchCase("MIERCOLES"));
+  print(switchCase("Viernes"));
+  print(switchCase("Domingo"));
+
+  print(switchCaseV2("Lunes"));
+  print(switchCaseV2("MARTES"));
+  print(switchCaseV2("Jueves"));
+  print(switchCaseV2("viernes"));
+  print(switchCaseV2("sabado"));
+
+
+  for(int i = 0; i < 10; i++){
+    print(i);
+  }
+
+  print("for...in");
+  final numbers = [1, 2, 3, 4, 5, 6, 8, 10 ,12, 13, 14, 15, 16, 17, 18];
+  for(var value in numbers){ print(value); }
+
+  print("forEach");
+  numbers.forEach((v){ print(v); });
+
+
+  print("while");
+  int value = 0;
+  while(value < 9) {
+    print(value);
+    value++;
+  }
+
+  print("do while");
+  value = 0;
+  do{
+    print(value);
+    value++;
+  } while (value < 9);
+}
+
+String ifElse(int age){
+  if(age > 18){
+    return 'Adult';
+  } else if(age > 13){
+    return 'Young';
+  } else {
+    return 'Child';
+  }
+}
+
+String switchCase(String day){
+  switch(day.toLowerCase()){
+    case 'lunes':
+      return "Inicio de semana";
+    case 'viernes':
+      return "Inicio del Fin de semana";
+    case 'sabado' || 'domingo':
+     return "Fin de semana";
+    default:
+      return "Día normal";
+  }
+}
+
+String switchCaseV2(String day){
+ return switch(day.toLowerCase()){
+    'lunes' => "Inicio de semana",
+    'viernes' => "Inicio del Fin de semana",
+    'sabado' || 'domingo' => "Fin de semana",
+    _ => "Día normal",
+  };
 }
